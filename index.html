@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+    <meta charset=“UTF-8”>
+    <meta name=“viewport” content=“width=device-width, initial-scale=1.0”>
+    <title>A Garden for My Girl 🌸</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0b0d;
+            overflow: hidden;
+            font-family: ‘Segoe UI’, sans-serif;
+            touch-action: manipulation;
+        }
+        .instruction {
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            text-align: center;
+            color: #dfdbe5;
+            font-size: 1.3rem;
+            pointer-events: none;
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+    <meta charset=“UTF-8”>
+    <meta name=“viewport” content=“width=device-width, initial-scale=1.0”>
+    <title>A Garden for My Girl 🌸</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0b0d;
+            overflow: hidden;
+            font-family: ‘Segoe UI’, sans-serif;
+            touch-action: manipulation;
+        }
+        .instruction {
+            position: absolute;
+            top: 40%;
+            width: 100%;
+            text-align: center;
+            color: #dfdbe5;
+            font-size: 1.3rem;
+            pointer-events: none;
+z-index: 10;
+            animation: fadePulse 2s infinite alternate;
+        }
+        @keyframes fadePulse {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+        .stem {
+            position: absolute;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to top, #1e4620, #428a4c);
+            transform-origin: bottom center;
+            animation: growStem 1.2s ease-out forwards;
+        }
+        .bloom {
+            position: absolute;
+            top: -15px;
+            left: -14px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: bloomKey 0.6s 1s ease-out forwards;
+        }
+
+z-index: 10;
+            animation: fadePulse 2s infinite alternate;
+        }
+        @keyframes fadePulse {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+        .stem {
+            position: absolute;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to top, #1e4620, #428a4c);
+            transform-origin: bottom center;
+            animation: growStem 1.2s ease-out forwards;
+        }
+        .bloom {
+            position: absolute;
+            top: -15px;
+            left: -14px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: bloomKey 0.6s 1s ease-out forwards;
+        }
+@keyframes growStem {
+            from { height: 0; }
+            to { height: var(--height); }
+        }
+        @keyframes bloomKey {
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class=“instruction”>Tap anywhere to make flowers grow for you ✨</div>
+    <div id=“garden”></div>
+
+    <script>
+        const garden = document.getElementById(‘garden’);
+        const colors = [‘#ff7597’, ‘#ffb3c6’, ‘#ffccd5’, ‘#ca8eff’, ‘#ffdf6d’, ‘#8ef7ff’, ‘#ff9ebb’];
+function plantFlower(x, y) {
+            const instruction = document.querySelector(‘.instruction’);
+            if (instruction) instruction.remove();
+
+            const windowHeight = window.innerHeight;
+            const stemHeight = windowHeight - y;
+
+            const stem = document.createElement(‘div’);
+            stem.classList.add(‘stem’);
+            stem.style.left = ${x}px;
+            stem.style.setProperty(‘--height’, ${stemHeight}px);
+
+@keyframes growStem {
+            from { height: 0; }
+            to { height: var(--height); }
+        }
+        @keyframes bloomKey {
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class=“instruction”>Tap anywhere to make flowers grow for you ✨</div>
+    <div id=“garden”></div>
+
+    <script>
+        const garden = document.getElementById(‘garden’);
+        const colors = [‘#ff7597’, ‘#ffb3c6’, ‘#ffccd5’, ‘#ca8eff’, ‘#ffdf6d’, ‘#8ef7ff’, ‘#ff9ebb’];
+function plantFlower(x, y) {
+            const instruction = document.querySelector(‘.instruction’);
+            if (instruction) instruction.remove();
+
+            const windowHeight = window.innerHeight;
+            const stemHeight = windowHeight - y;
+
+            const stem = document.createElement(‘div’);
+            stem.classList.add(‘stem’);
+            stem.style.left = ${x}px;
+            stem.style.setProperty(‘--height’, ${stemHeight}px);
+const bloom = document.createElement(‘div’);
+            bloom.classList.add(‘bloom’);
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            bloom.style.backgroundColor = randomColor;
+            bloom.style.boxShadow = 0 0 15px ${randomColor};
+
+            stem.appendChild(bloom);
+            garden.appendChild(stem);
+        }
+
+        document.addEventListener(‘click’, (e) => {
+            plantFlower(e.clientX, e.clientY);
+        });
+
+        document.addEventListener(‘touchstart’, (e) => {
+            const touch = e.touches[0];
+            plantFlower(touch.clientX, touch.clientY);
+        });
+    </script>
+</body>
+</html>
+
+@keyframes growStem {
+            from { height: 0; }
+            to { height: var(--height); }
+        }
+        @keyframes bloomKey {
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class=“instruction”>Tap anywhere to make flowers grow for you ✨</div>
+    <div id=“garden”></div>
+
+    <script>
+        const garden = document.getElementById(‘garden’);
+        const colors = [‘#ff7597’, ‘#ffb3c6’, ‘#ffccd5’, ‘#ca8eff’, ‘#ffdf6d’, ‘#8ef7ff’, ‘#ff9ebb’];
+function plantFlower(x, y) {
+            const instruction = document.querySelector(‘.instruction’);
+            if (instruction) instruction.remove();
+
+            const windowHeight = window.innerHeight;
+            const stemHeight = windowHeight - y;
+
+            const stem = document.createElement(‘div’);
+            stem.classList.add(‘stem’);
+            stem.style.left = ${x}px;
+            stem.style.setProperty(‘--height’, ${stemHeight}px);
+const bloom = document.createElement(‘div’);
+            bloom.classList.add(‘bloom’);
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            bloom.style.backgroundColor = randomColor;
+            bloom.style.boxShadow = 0 0 15px ${randomColor};
+
+            stem.appendChild(bloom);
+            garden.appendChild(stem);
+        }
+
+        document.addEventListener(‘click’, (e) => {
+            plantFlower(e.clientX, e.clientY);
+        });
+
+        document.addEventListener(‘touchstart’, (e) => {
+            const touch = e.touches[0];
+            plantFlower(touch.clientX, touch.clientY);
+        });
+    </script>
+</body>
+</html>
