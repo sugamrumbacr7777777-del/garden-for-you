@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flower Garden for You 🌸</title>
+    
+    <title>A Garden for My Girl 🌸</title>
+    <meta property="og:title" content="A Garden for My Girl 🌸">
+    <meta property="og:description" content="You wanted flowers... so I built you a whole garden. ✨">
+    <meta property="og:type" content="website">
+
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body, html {
@@ -26,8 +31,6 @@
             font-size: 2.5rem; font-weight: 400; margin: 10px 0; letter-spacing: 2px;
             background: linear-gradient(45deg, #ff9ebb, #ca8eff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        
-        /* Flower Elements */
         .stem {
             position: absolute; bottom: 0; width: 2px;
             background: linear-gradient(to top, #113317, #2c6346);
@@ -56,25 +59,24 @@
 <body>
     <div id="container">
         <div class="instruction" id="instruct">
-            <p>Click Anywhere to</p>
+            <p>Tap Anywhere to</p>
             <h1>Plant Flowers</h1>
-            <p>✨ or make a beautiful garden ✨</p>
+            <p>✨ make a beautiful garden ✨</p>
         </div>
     </div>
     <script>
         const container = document.getElementById('container');
         const instruct = document.getElementById('instruct');
         const colors = [
-            ['#ff7597', '#ffb3c6'], // Pink
-            ['#ca8eff', '#e2bbfd'], // Purple
-            ['#ff9ebb', '#ffccd5'], // Soft Rose
-            ['#ffbd59', '#ffde59'], // Pastel Yellow
-            ['#8ef7ff', '#bffffa']  // Pastel Blue
+            ['#ff7597', '#ffb3c6'],
+            ['#ca8eff', '#e2bbfd'],
+            ['#ff9ebb', '#ffccd5'],
+            ['#ffbd59', '#ffde59'],
+            ['#8ef7ff', '#bffffa']
         ];
 
         function createFlower(x, y) {
             if(instruct) instruct.style.display = 'none';
-            
             const windowHeight = window.innerHeight;
             const stemHeight = windowHeight - y;
             
@@ -88,7 +90,6 @@
             
             const randomColorPair = colors[Math.floor(Math.random() * colors.length)];
             
-            // Generate 6 structured petals to match the Instagram reel aesthetic
             for (let i = 0; i < 6; i++) {
                 const petal = document.createElement('div');
                 petal.classList.add('petal');
@@ -106,13 +107,8 @@
             container.appendChild(stem);
         }
 
-        window.addEventListener('click', (e) => {
-            createFlower(e.clientX, e.clientY);
-        });
-        window.addEventListener('touchstart', (e) => {
-            const touch = e.touches[0];
-            createFlower(touch.clientX, touch.clientY);
-        });
+        window.addEventListener('click', (e) => { createFlower(e.clientX, e.clientY); });
+        window.addEventListener('touchstart', (e) => { createFlower(e.touches[0].clientX, e.touches[0].clientY); });
     </script>
 </body>
 </html>
